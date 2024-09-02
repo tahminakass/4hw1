@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.a4hw1.R
+import com.example.a4hw1.data.models.User
 import com.example.a4hw1.databinding.FragmentMainBinding
 
 class MainFragment : Fragment() {
@@ -27,10 +28,14 @@ class MainFragment : Fragment() {
     }
 
     private fun setupListener() {
-        binding.txtMain.setOnClickListener {
-      findNavController()
-          .navigate(MainFragmentDirections.
-          actionMainFragmentToSecondFragment("Hello World"))
+        binding.buttonSend.setOnClickListener {
+            findNavController()
+                .navigate(MainFragmentDirections.
+                actionMainFragmentToSecondFragment(User(
+                    binding.etName.text.toString(),
+                    binding.etEmail.text.toString(),
+                    binding.etPassword.text.toString().toInt()
+                )))
         }
     }
 }

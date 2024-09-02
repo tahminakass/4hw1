@@ -12,7 +12,7 @@ import com.example.a4hw1.databinding.FragmentSecondBinding
 class SecondFragment : Fragment() {
 
     private lateinit var binding: FragmentSecondBinding
-    private val args by navArgs<SecondFragmentArgs>()
+    private val args  by navArgs<SecondFragmentArgs>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,7 +29,9 @@ class SecondFragment : Fragment() {
     }
 
     private fun getData() {
-        binding.txtSecond.text = args.name
+        binding.tvName.text = args.name.name
+        binding.tvEmail.text = args.name.email.toString()
+        binding.tvPassword.text = args.name.password.toString()
 
     }
 
